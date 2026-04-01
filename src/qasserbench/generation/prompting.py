@@ -11,9 +11,9 @@ if TYPE_CHECKING:
     from qasserbench.benchmark.loader import LoadedTaskAssets
 
 
-PROMPT_TEMPLATE_VERSION = "assertion_snippet_v1"
+PROMPT_TEMPLATE_VERSION = "assertion_snippet_v2"
 COMMON_PROMPT_INTRO = (
-    "You are writing a Python assertion snippet for a quantum-program benchmark task."
+    "Write a short Python assertion snippet for this quantum-program benchmark task."
 )
 
 
@@ -220,9 +220,9 @@ def _render_observation_contract(module: ast.Module) -> str:
     probe_names = _probe_function_names(module)
 
     lines = [
-        "Observation contract:",
-        "- Your code is executed after `run_program(...)` has already produced `counts`.",
-        "- Available variables: `counts`, `shots`, `metadata`.",
+        "Execution context:",
+        "- Your snippet is executed after `run_program(...)` has produced `counts`.",
+        "- The snippet itself runs with `counts`, `shots`, and `metadata` already available.",
     ]
 
     if probe_names:
@@ -290,12 +290,10 @@ def render_task_prompt(assets: "LoadedTaskAssets") -> str:
         f"Prompt template version: `{context.prompt_version}`.",
         "\n".join(
             [
-                "Return exactly one Python code block.",
-                "Do not import modules.",
-                "Do not define functions or classes.",
-                "Do not rewrite the program.",
-                "Do not include explanations or comments.",
-                "Use `assert` statements and simple local variables only.",
+                "Return one Python code block containing only the assertion snippet.",
+                "Keep the snippet self-contained, using `assert` statements and simple local variables.",
+                "If you need constants from the source code, write their values directly in the snippet or read them from `metadata` when available.",
+                "Avoid imports, helper definitions, and extra explanation outside the code block.",
             ]
         ),
         "Task specification:\n" + context.task_specification,

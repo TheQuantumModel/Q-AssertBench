@@ -68,6 +68,25 @@ class ExecutionRunnerTests(unittest.TestCase):
         self.assertEqual(trial.nominal_assertion.error_type, "runtime_error")
         self.assertIn("boom", trial.nominal_assertion.message or "")
 
+    def test_allows_generator_expressions_to_reference_prior_local_bindings(self) -> None:
+        nominal_program = _make_program_definition("QAB35", {"0000": 4, "0011": 2})
+        artifact = extract_candidate_assertion(
+            "legal_outcomes = {'0000', '0011'}\n"
+            "observed = set(counts.keys())\n"
+            "assert all(outcome in legal_outcomes for outcome in observed)",
+            extraction_mode="assertion_block",
+        )
+
+        trial = run_candidate_trial(
+            program=nominal_program,
+            fault_programs={},
+            artifact=artifact,
+            config=ExecutionConfig(shots=6, backend="test-backend"),
+        )
+
+        self.assertTrue(trial.nominal_assertion.passed)
+        self.assertIsNone(trial.nominal_assertion.error_type)
+
 
 if __name__ == "__main__":
     unittest.main()

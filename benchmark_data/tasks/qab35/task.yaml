@@ -4,7 +4,7 @@ family: structured_support
 property_type: entanglement
 qubit_count: 4
 shots: 1024
-llm_source_line_count: 32
+llm_source_line_count: 25
 circuit_gate_count: 6
 program_entry: program.py:PROGRAM
 gold_entry: gold.py:evaluate_gold_assertion

@@ -16,14 +16,13 @@ from qasserbench.execution.runtime import normalize_counts
 
 
 QUBIT_COUNT = 5
-LEGAL_STATES = ("00001", "00010", "00100", "01000", "10000")
 
 
 def build_statevector() -> Statevector:
     amplitudes = [0.0j] * (2**QUBIT_COUNT)
-    amplitude = 1 / math.sqrt(len(LEGAL_STATES))
-    for bitstring in LEGAL_STATES:
-        amplitudes[int(bitstring, 2)] = amplitude
+    amplitude = 1 / math.sqrt(QUBIT_COUNT)
+    for qubit_index in range(QUBIT_COUNT):
+        amplitudes[1 << qubit_index] = amplitude
     return Statevector(amplitudes)
 
 
@@ -46,18 +45,11 @@ def run_program(config: ExecutionConfig) -> ExecutionResult:
         run_kwargs["seed_simulator"] = config.seed
     job = backend.run(transpiled, **run_kwargs)
     counts = normalize_counts(job.result().get_counts())
-    metadata = dict(config.metadata)
-    metadata.update(
-        {
-            "support_family": "single_excitation",
-            "legal_states": LEGAL_STATES,
-        }
-    )
     return ExecutionResult(
         counts=counts,
         shots=config.shots,
         backend=config.backend,
-        metadata=metadata,
+        metadata=dict(config.metadata),
     )
 
 

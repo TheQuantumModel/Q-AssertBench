@@ -4,7 +4,7 @@ family: algorithmic_semantics
 property_type: oracle_relation
 qubit_count: 6
 shots: 1024
-llm_source_line_count: 36
+llm_source_line_count: 27
 circuit_gate_count: 8
 program_entry: program.py:PROGRAM
 gold_entry: gold.py:evaluate_gold_assertion

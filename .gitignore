@@ -12,5 +12,6 @@ experiment_data/raw_results/
 experiment_data/summaries/
 
 *.log
+.env.local
 
 archive/Q-AssertBench(old)/

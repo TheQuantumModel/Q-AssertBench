@@ -1,0 +1,766 @@
+{
+  "alignment_summaries": [
+    {
+      "alignment_counts": {
+        "aligned": 52
+      },
+      "alignment_label": "aligned",
+      "model_id": "gpt-5.4",
+      "pass@1": 0.4,
+      "pass@5": 1.0,
+      "pass_count": 52,
+      "pass_rate": 1.0,
+      "trial_count": 52
+    },
+    {
+      "alignment_counts": {
+        "misaligned": 3
+      },
+      "alignment_label": "misaligned",
+      "model_id": "gpt-5.4",
+      "pass@1": 0.0,
+      "pass@5": 0.0,
+      "pass_count": 0,
+      "pass_rate": 0.0,
+      "trial_count": 3
+    },
+    {
+      "alignment_counts": {
+        "partially_aligned": 685
+      },
+      "alignment_label": "partially_aligned",
+      "model_id": "gpt-5.4",
+      "pass@1": 0.7714285714285715,
+      "pass@5": 0.9428571428571428,
+      "pass_count": 532,
+      "pass_rate": 0.7766423357664234,
+      "trial_count": 685
+    }
+  ],
+  "category_summaries": [
+    {
+      "alignment_counts": {
+        "misaligned": 2,
+        "partially_aligned": 38
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 1.0,
+      "pass@5": 1.0,
+      "pass_count": 25,
+      "pass_rate": 0.625,
+      "task_category": "algorithmic_semantics_oracle_relation",
+      "trial_count": 40
+    },
+    {
+      "alignment_counts": {
+        "partially_aligned": 20
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 0.0,
+      "pass@5": 1.0,
+      "pass_count": 6,
+      "pass_rate": 0.3,
+      "task_category": "arithmetic_circuit_state_relation",
+      "trial_count": 20
+    },
+    {
+      "alignment_counts": {
+        "partially_aligned": 120
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 1.0,
+      "pass@5": 1.0,
+      "pass_count": 111,
+      "pass_rate": 0.925,
+      "task_category": "basic_behavior_distribution",
+      "trial_count": 120
+    },
+    {
+      "alignment_counts": {
+        "aligned": 40,
+        "partially_aligned": 20
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 1.0,
+      "pass@5": 1.0,
+      "pass_count": 60,
+      "pass_rate": 1.0,
+      "task_category": "basic_behavior_entanglement",
+      "trial_count": 60
+    },
+    {
+      "alignment_counts": {
+        "partially_aligned": 20
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 0.0,
+      "pass@5": 1.0,
+      "pass_count": 19,
+      "pass_rate": 0.95,
+      "task_category": "basic_behavior_state_relation",
+      "trial_count": 20
+    },
+    {
+      "alignment_counts": {
+        "aligned": 1,
+        "partially_aligned": 19
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 0.0,
+      "pass@5": 1.0,
+      "pass_count": 3,
+      "pass_rate": 0.15,
+      "task_category": "bernstein_vazirani_distribution",
+      "trial_count": 20
+    },
+    {
+      "alignment_counts": {
+        "aligned": 4,
+        "partially_aligned": 16
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 1.0,
+      "pass@5": 1.0,
+      "pass_count": 20,
+      "pass_rate": 1.0,
+      "task_category": "bernstein_vazirani_solution_pattern",
+      "trial_count": 20
+    },
+    {
+      "alignment_counts": {
+        "partially_aligned": 40
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 1.0,
+      "pass@5": 1.0,
+      "pass_count": 40,
+      "pass_rate": 1.0,
+      "task_category": "deutsch_family_oracle_relation",
+      "trial_count": 40
+    },
+    {
+      "alignment_counts": {
+        "partially_aligned": 40
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 1.0,
+      "pass@5": 1.0,
+      "pass_count": 40,
+      "pass_rate": 1.0,
+      "task_category": "deutsch_jozsa_oracle_relation",
+      "trial_count": 40
+    },
+    {
+      "alignment_counts": {
+        "partially_aligned": 20
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 0.0,
+      "pass@5": 1.0,
+      "pass_count": 5,
+      "pass_rate": 0.25,
+      "task_category": "grover_distribution",
+      "trial_count": 20
+    },
+    {
+      "alignment_counts": {
+        "partially_aligned": 60
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 1.0,
+      "pass@5": 1.0,
+      "pass_count": 60,
+      "pass_rate": 1.0,
+      "task_category": "grover_solution_pattern",
+      "trial_count": 60
+    },
+    {
+      "alignment_counts": {
+        "partially_aligned": 20
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 1.0,
+      "pass@5": 1.0,
+      "pass_count": 20,
+      "pass_rate": 1.0,
+      "task_category": "hhl_solution_pattern",
+      "trial_count": 20
+    },
+    {
+      "alignment_counts": {
+        "misaligned": 1,
+        "partially_aligned": 19
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 1.0,
+      "pass@5": 1.0,
+      "pass_count": 19,
+      "pass_rate": 0.95,
+      "task_category": "qaoa_solution_pattern",
+      "trial_count": 20
+    },
+    {
+      "alignment_counts": {
+        "partially_aligned": 40
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 0.0,
+      "pass@5": 0.0,
+      "pass_count": 2,
+      "pass_rate": 0.05,
+      "task_category": "qft_periodicity",
+      "trial_count": 40
+    },
+    {
+      "alignment_counts": {
+        "partially_aligned": 20
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 1.0,
+      "pass@5": 1.0,
+      "pass_count": 20,
+      "pass_rate": 1.0,
+      "task_category": "qft_state_relation",
+      "trial_count": 20
+    },
+    {
+      "alignment_counts": {
+        "partially_aligned": 20
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 1.0,
+      "pass@5": 1.0,
+      "pass_count": 19,
+      "pass_rate": 0.95,
+      "task_category": "qpe_periodicity",
+      "trial_count": 20
+    },
+    {
+      "alignment_counts": {
+        "partially_aligned": 60
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 0.3333333333333333,
+      "pass@5": 1.0,
+      "pass_count": 42,
+      "pass_rate": 0.7,
+      "task_category": "shor_periodicity",
+      "trial_count": 60
+    },
+    {
+      "alignment_counts": {
+        "partially_aligned": 20
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 1.0,
+      "pass@5": 1.0,
+      "pass_count": 19,
+      "pass_rate": 0.95,
+      "task_category": "simons_distribution",
+      "trial_count": 20
+    },
+    {
+      "alignment_counts": {
+        "aligned": 7,
+        "partially_aligned": 33
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 1.0,
+      "pass@5": 1.0,
+      "pass_count": 21,
+      "pass_rate": 0.525,
+      "task_category": "simons_oracle_relation",
+      "trial_count": 40
+    },
+    {
+      "alignment_counts": {
+        "partially_aligned": 20
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 1.0,
+      "pass@5": 1.0,
+      "pass_count": 20,
+      "pass_rate": 1.0,
+      "task_category": "structured_support_distribution",
+      "trial_count": 20
+    },
+    {
+      "alignment_counts": {
+        "partially_aligned": 20
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 1.0,
+      "pass@5": 1.0,
+      "pass_count": 13,
+      "pass_rate": 0.65,
+      "task_category": "structured_support_entanglement",
+      "trial_count": 20
+    }
+  ],
+  "model_summaries": [
+    {
+      "alignment_counts": {
+        "aligned": 52,
+        "misaligned": 3,
+        "partially_aligned": 685
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 0.7837837837837838,
+      "pass@5": 0.9459459459459459,
+      "pass_count": 584,
+      "pass_rate": 0.7891891891891892,
+      "trial_count": 740
+    }
+  ],
+  "task_summaries": [
+    {
+      "alignment_counts": {
+        "partially_aligned": 20
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 1.0,
+      "pass@5": 1.0,
+      "pass_count": 20,
+      "pass_rate": 1.0,
+      "task_id": "QAB01",
+      "trial_count": 20
+    },
+    {
+      "alignment_counts": {
+        "partially_aligned": 20
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 1.0,
+      "pass@5": 1.0,
+      "pass_count": 20,
+      "pass_rate": 1.0,
+      "task_id": "QAB02",
+      "trial_count": 20
+    },
+    {
+      "alignment_counts": {
+        "partially_aligned": 20
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 0.0,
+      "pass@5": 1.0,
+      "pass_count": 19,
+      "pass_rate": 0.95,
+      "task_id": "QAB03",
+      "trial_count": 20
+    },
+    {
+      "alignment_counts": {
+        "partially_aligned": 20
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 1.0,
+      "pass@5": 1.0,
+      "pass_count": 20,
+      "pass_rate": 1.0,
+      "task_id": "QAB04",
+      "trial_count": 20
+    },
+    {
+      "alignment_counts": {
+        "partially_aligned": 20
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 1.0,
+      "pass@5": 1.0,
+      "pass_count": 19,
+      "pass_rate": 0.95,
+      "task_id": "QAB05",
+      "trial_count": 20
+    },
+    {
+      "alignment_counts": {
+        "partially_aligned": 20
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 1.0,
+      "pass@5": 1.0,
+      "pass_count": 20,
+      "pass_rate": 1.0,
+      "task_id": "QAB06",
+      "trial_count": 20
+    },
+    {
+      "alignment_counts": {
+        "partially_aligned": 20
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 1.0,
+      "pass@5": 1.0,
+      "pass_count": 12,
+      "pass_rate": 0.6,
+      "task_id": "QAB07",
+      "trial_count": 20
+    },
+    {
+      "alignment_counts": {
+        "partially_aligned": 20
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 1.0,
+      "pass@5": 1.0,
+      "pass_count": 20,
+      "pass_rate": 1.0,
+      "task_id": "QAB08",
+      "trial_count": 20
+    },
+    {
+      "alignment_counts": {
+        "aligned": 20
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 1.0,
+      "pass@5": 1.0,
+      "pass_count": 20,
+      "pass_rate": 1.0,
+      "task_id": "QAB09",
+      "trial_count": 20
+    },
+    {
+      "alignment_counts": {
+        "aligned": 20
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 1.0,
+      "pass@5": 1.0,
+      "pass_count": 20,
+      "pass_rate": 1.0,
+      "task_id": "QAB10",
+      "trial_count": 20
+    },
+    {
+      "alignment_counts": {
+        "partially_aligned": 20
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 1.0,
+      "pass@5": 1.0,
+      "pass_count": 20,
+      "pass_rate": 1.0,
+      "task_id": "QAB11",
+      "trial_count": 20
+    },
+    {
+      "alignment_counts": {
+        "partially_aligned": 20
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 1.0,
+      "pass@5": 1.0,
+      "pass_count": 20,
+      "pass_rate": 1.0,
+      "task_id": "QAB12",
+      "trial_count": 20
+    },
+    {
+      "alignment_counts": {
+        "partially_aligned": 20
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 1.0,
+      "pass@5": 1.0,
+      "pass_count": 20,
+      "pass_rate": 1.0,
+      "task_id": "QAB13",
+      "trial_count": 20
+    },
+    {
+      "alignment_counts": {
+        "partially_aligned": 20
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 1.0,
+      "pass@5": 1.0,
+      "pass_count": 20,
+      "pass_rate": 1.0,
+      "task_id": "QAB14",
+      "trial_count": 20
+    },
+    {
+      "alignment_counts": {
+        "aligned": 1,
+        "partially_aligned": 19
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 0.0,
+      "pass@5": 1.0,
+      "pass_count": 3,
+      "pass_rate": 0.15,
+      "task_id": "QAB15",
+      "trial_count": 20
+    },
+    {
+      "alignment_counts": {
+        "aligned": 4,
+        "partially_aligned": 16
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 1.0,
+      "pass@5": 1.0,
+      "pass_count": 20,
+      "pass_rate": 1.0,
+      "task_id": "QAB16",
+      "trial_count": 20
+    },
+    {
+      "alignment_counts": {
+        "partially_aligned": 20
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 1.0,
+      "pass@5": 1.0,
+      "pass_count": 19,
+      "pass_rate": 0.95,
+      "task_id": "QAB17",
+      "trial_count": 20
+    },
+    {
+      "alignment_counts": {
+        "partially_aligned": 20
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 1.0,
+      "pass@5": 1.0,
+      "pass_count": 1,
+      "pass_rate": 0.05,
+      "task_id": "QAB18",
+      "trial_count": 20
+    },
+    {
+      "alignment_counts": {
+        "aligned": 7,
+        "partially_aligned": 13
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 1.0,
+      "pass@5": 1.0,
+      "pass_count": 20,
+      "pass_rate": 1.0,
+      "task_id": "QAB19",
+      "trial_count": 20
+    },
+    {
+      "alignment_counts": {
+        "misaligned": 2,
+        "partially_aligned": 18
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 1.0,
+      "pass@5": 1.0,
+      "pass_count": 6,
+      "pass_rate": 0.3,
+      "task_id": "QAB20",
+      "trial_count": 20
+    },
+    {
+      "alignment_counts": {
+        "partially_aligned": 20
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 0.0,
+      "pass@5": 0.0,
+      "pass_count": 2,
+      "pass_rate": 0.1,
+      "task_id": "QAB21",
+      "trial_count": 20
+    },
+    {
+      "alignment_counts": {
+        "partially_aligned": 20
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 1.0,
+      "pass@5": 1.0,
+      "pass_count": 20,
+      "pass_rate": 1.0,
+      "task_id": "QAB22",
+      "trial_count": 20
+    },
+    {
+      "alignment_counts": {
+        "partially_aligned": 20
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 1.0,
+      "pass@5": 1.0,
+      "pass_count": 20,
+      "pass_rate": 1.0,
+      "task_id": "QAB23",
+      "trial_count": 20
+    },
+    {
+      "alignment_counts": {
+        "partially_aligned": 20
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 0.0,
+      "pass@5": 1.0,
+      "pass_count": 5,
+      "pass_rate": 0.25,
+      "task_id": "QAB24",
+      "trial_count": 20
+    },
+    {
+      "alignment_counts": {
+        "partially_aligned": 20
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 1.0,
+      "pass@5": 1.0,
+      "pass_count": 20,
+      "pass_rate": 1.0,
+      "task_id": "QAB25",
+      "trial_count": 20
+    },
+    {
+      "alignment_counts": {
+        "partially_aligned": 20
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 1.0,
+      "pass@5": 1.0,
+      "pass_count": 19,
+      "pass_rate": 0.95,
+      "task_id": "QAB26",
+      "trial_count": 20
+    },
+    {
+      "alignment_counts": {
+        "partially_aligned": 20
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 0.0,
+      "pass@5": 1.0,
+      "pass_count": 18,
+      "pass_rate": 0.9,
+      "task_id": "QAB27",
+      "trial_count": 20
+    },
+    {
+      "alignment_counts": {
+        "partially_aligned": 20
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 1.0,
+      "pass@5": 1.0,
+      "pass_count": 20,
+      "pass_rate": 1.0,
+      "task_id": "QAB28",
+      "trial_count": 20
+    },
+    {
+      "alignment_counts": {
+        "partially_aligned": 20
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 0.0,
+      "pass@5": 0.0,
+      "pass_count": 0,
+      "pass_rate": 0.0,
+      "task_id": "QAB29",
+      "trial_count": 20
+    },
+    {
+      "alignment_counts": {
+        "partially_aligned": 20
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 0.0,
+      "pass@5": 1.0,
+      "pass_count": 5,
+      "pass_rate": 0.25,
+      "task_id": "QAB30",
+      "trial_count": 20
+    },
+    {
+      "alignment_counts": {
+        "partially_aligned": 20
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 1.0,
+      "pass@5": 1.0,
+      "pass_count": 20,
+      "pass_rate": 1.0,
+      "task_id": "QAB31",
+      "trial_count": 20
+    },
+    {
+      "alignment_counts": {
+        "partially_aligned": 20
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 1.0,
+      "pass@5": 1.0,
+      "pass_count": 19,
+      "pass_rate": 0.95,
+      "task_id": "QAB32",
+      "trial_count": 20
+    },
+    {
+      "alignment_counts": {
+        "partially_aligned": 20
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 0.0,
+      "pass@5": 1.0,
+      "pass_count": 6,
+      "pass_rate": 0.3,
+      "task_id": "QAB33",
+      "trial_count": 20
+    },
+    {
+      "alignment_counts": {
+        "misaligned": 1,
+        "partially_aligned": 19
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 1.0,
+      "pass@5": 1.0,
+      "pass_count": 19,
+      "pass_rate": 0.95,
+      "task_id": "QAB34",
+      "trial_count": 20
+    },
+    {
+      "alignment_counts": {
+        "partially_aligned": 20
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 1.0,
+      "pass@5": 1.0,
+      "pass_count": 13,
+      "pass_rate": 0.65,
+      "task_id": "QAB35",
+      "trial_count": 20
+    },
+    {
+      "alignment_counts": {
+        "partially_aligned": 20
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 1.0,
+      "pass@5": 1.0,
+      "pass_count": 19,
+      "pass_rate": 0.95,
+      "task_id": "QAB36",
+      "trial_count": 20
+    },
+    {
+      "alignment_counts": {
+        "partially_aligned": 20
+      },
+      "model_id": "gpt-5.4",
+      "pass@1": 1.0,
+      "pass@5": 1.0,
+      "pass_count": 20,
+      "pass_rate": 1.0,
+      "task_id": "QAB37",
+      "trial_count": 20
+    }
+  ]
+}

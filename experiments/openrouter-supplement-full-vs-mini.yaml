@@ -1,0 +1,26 @@
+name: openrouter-supplement-full-vs-mini
+client: openai-compatible
+
+api:
+  base_url: https://openrouter.ai/api/v1
+  api_key_env: OPENROUTER_API_KEY
+
+defaults:
+  tasks_root: benchmark_data/tasks
+  output_dir: experiment_data/generated_instances/openrouter-supplement-full-vs-mini
+  temperature: 1.0
+  max_output_tokens: 2048
+  trials: 10
+  concurrency: 5
+
+task_selection:
+  mode: all
+  task_ids: []
+
+models:
+  - model_id: openai/gpt-5.4
+  - model_id: openai/gpt-5.4-mini
+  - model_id: google/gemini-3.1-pro-preview
+  - model_id: google/gemini-3.1-flash-lite-preview
+  - model_id: x-ai/grok-4
+  - model_id: x-ai/grok-4-fast

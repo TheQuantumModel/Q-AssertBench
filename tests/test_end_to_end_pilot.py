@@ -68,6 +68,10 @@ class EndToEndPilotTests(unittest.TestCase):
         self.assertEqual(len(trial_records), 6)
         self.assertEqual({record["task_id"] for record in trial_records}, set(task_ids))
         self.assertTrue(all(record["outcome"] == "pass" for record in trial_records))
+        self.assertTrue(all(record["overall_outcome"] == "pass" for record in trial_records))
+        self.assertTrue(all(record["generation_status"] == "success" for record in trial_records))
+        self.assertTrue(all(record["nominal_status"] == "pass" for record in trial_records))
+        self.assertTrue(all(record["fault_status"] == "detected" for record in trial_records))
         self.assertTrue(all(record["alignment_label"] == "aligned" for record in trial_records))
         self.assertTrue(all("alignment_components" in record for record in trial_records))
         self.assertTrue(
@@ -87,6 +91,37 @@ class EndToEndPilotTests(unittest.TestCase):
         self.assertAlmostEqual(model_summary["pass_rate"], 1.0)
         self.assertAlmostEqual(model_summary["pass@1"], 1.0)
         self.assertAlmostEqual(model_summary["pass@2"], 1.0)
+
+    def test_records_structured_status_fields_for_runtime_error_candidate(self) -> None:
+        tasks_root = Path("/home/li/project/Q-AssertBench/project_code/benchmark_data/tasks")
+        client = GoldReplayClient({"QAB01": "```python\nraise RuntimeError('boom')\n```"})
+
+        with TemporaryDirectory() as tmp_dir:
+            experiment_root = Path(tmp_dir) / "experiment_data"
+            generation_path = experiment_root / "generated" / "runtime_generation.jsonl"
+            trial_results_path = experiment_root / "raw_results" / "runtime_trial_results.jsonl"
+
+            run_generation_experiment(
+                tasks_root=tasks_root,
+                output_path=generation_path,
+                client=client,
+                task_ids=("QAB01",),
+                trial_count=1,
+            )
+            evaluate_generation_records(
+                input_path=generation_path,
+                output_path=trial_results_path,
+            )
+
+            trial_records = read_trial_results(trial_results_path)
+
+        self.assertEqual(len(trial_records), 1)
+        record = trial_records[0]
+        self.assertEqual(record["generation_status"], "success")
+        self.assertEqual(record["nominal_status"], "runtime_error")
+        self.assertEqual(record["fault_status"], "runtime_error")
+        self.assertEqual(record["overall_outcome"], "invalid")
+        self.assertEqual(record["outcome"], "invalid")
 
 
 if __name__ == "__main__":

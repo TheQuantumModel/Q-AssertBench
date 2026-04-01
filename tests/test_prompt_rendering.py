@@ -29,7 +29,8 @@ class PromptRenderingTests(unittest.TestCase):
         prompt_text = render_task_prompt(assets)
 
         self.assertIn(COMMON_PROMPT_INTRO, prompt_text)
-        self.assertIn("Return exactly one Python code block.", prompt_text)
+        self.assertIn("Return one Python code block containing only the assertion snippet.", prompt_text)
+        self.assertIn("write their values directly in the snippet", prompt_text)
         self.assertIn("Relevant source excerpt from `program.py`:", prompt_text)
         self.assertIn("```python", prompt_text)
         self.assertIn("def build_circuit", prompt_text)
@@ -45,6 +46,7 @@ class PromptRenderingTests(unittest.TestCase):
         self.assertIn("after_state_preparation", prompt_text)
         self.assertIn("build_state_preparation_probe_circuit", prompt_text)
         self.assertIn("The provided `counts` are produced by the probe function", prompt_text)
+        self.assertIn("The snippet itself runs with `counts`, `shots`, and `metadata`", prompt_text)
         self.assertIn("def run_program", prompt_text)
 
     def test_renders_all_tasks_with_common_contract_and_source_block(self) -> None:

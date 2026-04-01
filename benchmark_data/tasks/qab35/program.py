@@ -39,18 +39,11 @@ def run_program(config: ExecutionConfig) -> ExecutionResult:
         run_kwargs["seed_simulator"] = config.seed
     job = backend.run(transpiled, **run_kwargs)
     counts = normalize_counts(job.result().get_counts())
-    metadata = dict(config.metadata)
-    metadata.update(
-        {
-            "support_family": "even_parity",
-            "qubit_count": QUBIT_COUNT,
-        }
-    )
     return ExecutionResult(
         counts=counts,
         shots=config.shots,
         backend=config.backend,
-        metadata=metadata,
+        metadata=dict(config.metadata),
     )
 
 

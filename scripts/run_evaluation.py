@@ -21,6 +21,47 @@ def _build_task_category(family: str, property_type: str) -> str:
     return f"{family}_{property_type}"
 
 
+def _generation_status(candidate_diagnostics: list[str], *, is_usable: bool) -> str:
+    if is_usable:
+        return "success"
+    if "empty_response" in candidate_diagnostics:
+        return "empty_response"
+    return "format_error"
+
+
+def _nominal_status(*, is_usable: bool, nominal_passed: bool, nominal_error: str | None) -> str:
+    if not is_usable:
+        return "unusable_candidate"
+    if nominal_passed:
+        return "pass"
+    return nominal_error or "assertion_failed"
+
+
+def _fault_status(
+    *,
+    is_usable: bool,
+    fault_results: list[dict[str, str | bool | None]],
+) -> str:
+    if not fault_results:
+        return "not_applicable"
+    if not is_usable:
+        return "unusable_candidate"
+
+    if any(result["assertion_error"] == "runtime_error" for result in fault_results):
+        return "runtime_error"
+
+    detected = sum(
+        1
+        for result in fault_results
+        if result["assertion_passed"] is False and result["assertion_error"] == "assertion_failed"
+    )
+    if detected == len(fault_results):
+        return "detected"
+    if detected > 0:
+        return "partially_detected"
+    return "missed"
+
+
 def evaluate_generation_records(
     *,
     input_path: str | Path,
@@ -64,10 +105,32 @@ def evaluate_generation_records(
         )
         classification = classify_trial(artifact, trial, alignment)
         gold_nominal = assets.program.evaluate_gold_assertion(trial.nominal_execution)
+        fault_results = [
+            {
+                "fault_id": fault_result.fault_id,
+                "assertion_passed": fault_result.assertion_result.passed,
+                "assertion_error": fault_result.assertion_result.error_type,
+            }
+            for fault_result in trial.fault_results
+        ]
+        generation_status = _generation_status(
+            list(artifact.diagnostics),
+            is_usable=artifact.is_usable,
+        )
+        nominal_status = _nominal_status(
+            is_usable=artifact.is_usable,
+            nominal_passed=trial.nominal_assertion.passed,
+            nominal_error=trial.nominal_assertion.error_type,
+        )
+        fault_status = _fault_status(
+            is_usable=artifact.is_usable,
+            fault_results=fault_results,
+        )
 
         evaluated_records.append(
             {
                 "model_id": generation_record["model_id"],
+                "provider_model_id": generation_record.get("provider_model_id"),
                 "task_id": assets.task.task_id,
                 "task_category": _build_task_category(
                     assets.task.family,
@@ -82,8 +145,12 @@ def evaluate_generation_records(
                 "prompt_tokens": generation_record.get("prompt_tokens"),
                 "completion_tokens": generation_record.get("completion_tokens"),
                 "total_tokens": generation_record.get("total_tokens"),
+                "generation_status": generation_status,
                 "candidate_code": artifact.code,
                 "candidate_diagnostics": list(artifact.diagnostics),
+                "nominal_status": nominal_status,
+                "fault_status": fault_status,
+                "overall_outcome": classification.outcome,
                 "outcome": classification.outcome,
                 "alignment_label": classification.alignment_label,
                 "alignment_score": alignment.score,
@@ -95,14 +162,7 @@ def evaluate_generation_records(
                 "gold_nominal_details": dict(gold_nominal.details),
                 "nominal_assertion_passed": trial.nominal_assertion.passed,
                 "nominal_assertion_error": trial.nominal_assertion.error_type,
-                "fault_results": [
-                    {
-                        "fault_id": fault_result.fault_id,
-                        "assertion_passed": fault_result.assertion_result.passed,
-                        "assertion_error": fault_result.assertion_result.error_type,
-                    }
-                    for fault_result in trial.fault_results
-                ],
+                "fault_results": fault_results,
             }
         )
 

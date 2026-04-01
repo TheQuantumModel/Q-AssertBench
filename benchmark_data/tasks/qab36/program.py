@@ -43,18 +43,11 @@ def run_program(config: ExecutionConfig) -> ExecutionResult:
         run_kwargs["seed_simulator"] = config.seed
     job = backend.run(transpiled, **run_kwargs)
     counts = normalize_counts(job.result().get_counts())
-    metadata = dict(config.metadata)
-    metadata.update(
-        {
-            "register_width": REGISTER_WIDTH,
-            "xor_mask": XOR_MASK,
-        }
-    )
     return ExecutionResult(
         counts=counts,
         shots=config.shots,
         backend=config.backend,
-        metadata=metadata,
+        metadata=dict(config.metadata),
     )
 
 

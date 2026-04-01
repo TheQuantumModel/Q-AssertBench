@@ -31,13 +31,15 @@ def _evaluate_candidate_against_counts(
 
     try:
         compiled = compile(artifact.code or "", "<candidate-assertion>", "exec")
-        local_scope = {
+        # Use a shared scope for globals/locals so comprehensions and generator
+        # expressions can still resolve names assigned earlier in the snippet.
+        execution_scope = {
             "counts": counts,
             "shots": shots,
             "backend": backend,
             "metadata": MappingProxyType(dict(metadata)),
         }
-        exec(compiled, {}, local_scope)
+        exec(compiled, execution_scope, execution_scope)
     except AssertionError as exc:
         return AssertionCheckResult(
             passed=False,

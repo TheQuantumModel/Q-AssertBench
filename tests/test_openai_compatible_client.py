@@ -130,6 +130,7 @@ class OpenAICompatibleClientTests(unittest.TestCase):
             anthropic_version="2023-06-01",
             temperature=0.7,
             max_output_tokens=500,
+            request_timeout_seconds=120.0,
         )
 
         with mock.patch.dict(
@@ -151,6 +152,7 @@ class OpenAICompatibleClientTests(unittest.TestCase):
             anthropic_version="2023-06-01",
             temperature=0.7,
             max_output_tokens=500,
+            request_timeout_seconds=120.0,
         )
 
     def test_build_generation_client_reads_gemini_native_settings_from_env(self) -> None:
@@ -164,6 +166,7 @@ class OpenAICompatibleClientTests(unittest.TestCase):
             anthropic_version="unused",
             temperature=0.8,
             max_output_tokens=600,
+            request_timeout_seconds=120.0,
         )
 
         with mock.patch.dict(
@@ -184,6 +187,7 @@ class OpenAICompatibleClientTests(unittest.TestCase):
             api_base_url="https://generativelanguage.googleapis.com",
             temperature=0.8,
             max_output_tokens=600,
+            request_timeout_seconds=120.0,
         )
 
     def test_calls_chat_completions_with_rendered_prompt(self) -> None:

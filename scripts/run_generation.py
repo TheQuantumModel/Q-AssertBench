@@ -155,6 +155,12 @@ def _build_generation_client_from_manifest(
                 max_output_tokens=int(
                     model_config.get("max_output_tokens", defaults.get("max_output_tokens", 2048))
                 ),
+                request_timeout_seconds=float(
+                    model_config.get(
+                        "request_timeout_seconds",
+                        defaults.get("request_timeout_seconds", 120.0),
+                    )
+                ),
             )
 
         if client_type != "anthropic-native":
@@ -180,6 +186,12 @@ def _build_generation_client_from_manifest(
             temperature=float(model_config.get("temperature", defaults.get("temperature", 0.0))),
             max_output_tokens=int(
                 model_config.get("max_output_tokens", defaults.get("max_output_tokens", 2048))
+            ),
+            request_timeout_seconds=float(
+                model_config.get(
+                    "request_timeout_seconds",
+                    defaults.get("request_timeout_seconds", 120.0),
+                )
             ),
         )
 
@@ -296,6 +308,7 @@ def build_generation_client(args: argparse.Namespace) -> ModelClient:
             api_base_url=api_base_url,
             temperature=args.temperature,
             max_output_tokens=args.max_output_tokens,
+            request_timeout_seconds=args.request_timeout_seconds,
         )
 
     api_base_url = args.api_base_url or os.environ.get("QAB_API_BASE_URL")
@@ -307,6 +320,7 @@ def build_generation_client(args: argparse.Namespace) -> ModelClient:
             anthropic_version=args.anthropic_version,
             temperature=args.temperature,
             max_output_tokens=args.max_output_tokens,
+            request_timeout_seconds=args.request_timeout_seconds,
         )
 
     if client_type != "openai-compatible":
@@ -396,6 +410,12 @@ def main() -> int:
         type=int,
         default=2048,
         help="Maximum completion tokens; pass 0 for Gemini native requests with no maxOutputTokens cap",
+    )
+    parser.add_argument(
+        "--request-timeout-seconds",
+        type=float,
+        default=120.0,
+        help="HTTP request timeout for native clients and other urllib-based requests",
     )
     parser.add_argument(
         "--response-text",

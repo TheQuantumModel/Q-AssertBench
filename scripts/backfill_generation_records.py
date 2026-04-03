@@ -66,6 +66,7 @@ def backfill_model_directory(
     target_trials: int,
     temperature: float,
     max_output_tokens: int,
+    request_timeout_seconds: float,
     concurrency: int,
     supplement_tag: str,
 ) -> None:
@@ -131,6 +132,8 @@ def backfill_model_directory(
             str(temperature),
             "--max-output-tokens",
             str(max_output_tokens),
+            "--request-timeout-seconds",
+            str(request_timeout_seconds),
             "--anthropic-version",
             anthropic_version,
         ]
@@ -201,6 +204,12 @@ def main() -> int:
         default=2048,
         help="Maximum completion tokens for backfill generation",
     )
+    parser.add_argument(
+        "--request-timeout-seconds",
+        type=float,
+        default=120.0,
+        help="HTTP request timeout used by the generation client",
+    )
     parser.add_argument("--concurrency", type=int, default=5, help="Concurrent generation requests")
     parser.add_argument(
         "--supplement-tag",
@@ -220,6 +229,7 @@ def main() -> int:
         target_trials=args.target_trials,
         temperature=args.temperature,
         max_output_tokens=args.max_output_tokens,
+        request_timeout_seconds=args.request_timeout_seconds,
         concurrency=args.concurrency,
         supplement_tag=args.supplement_tag,
     )

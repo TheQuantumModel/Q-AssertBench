@@ -81,6 +81,7 @@ class BackfillResumeTest(unittest.TestCase):
                 self.assertEqual(command[command.index("--task-id") + 1], "QAB02")
                 self.assertEqual(command[command.index("--trials") + 1], "17")
                 self.assertEqual(command[command.index("--trial-start-index") + 1], "4")
+                self.assertEqual(command[command.index("--request-timeout-seconds") + 1], "120.0")
                 self.assertIn("--append", command)
                 output_path = Path(command[2])
                 self.assertEqual(output_path.name, "QAB02.jsonl")
@@ -101,6 +102,7 @@ class BackfillResumeTest(unittest.TestCase):
                     target_trials=20,
                     temperature=1.0,
                     max_output_tokens=2048,
+                    request_timeout_seconds=120.0,
                     concurrency=1,
                     supplement_tag="resume_test",
                 )
@@ -150,6 +152,7 @@ class BackfillResumeTest(unittest.TestCase):
                     target_trials=20,
                     temperature=1.0,
                     max_output_tokens=0,
+                    request_timeout_seconds=120.0,
                     concurrency=5,
                     supplement_tag="resume_test",
                 )

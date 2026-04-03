@@ -32,14 +32,20 @@ Included generated-instance runs:
   - status: complete
   - task coverage: `37/37`
   - total records: `740`
+- `generated_instances/gemini-main/gemini-3-flash-preview`
+  - status: complete
+  - task coverage: `37/37`
+  - total records: `740`
 
 Included evaluation artifacts:
 
 - `raw_results/openai-main/gpt-5.4/trial_results.jsonl`
 - `raw_results/openrouter-main/qwen_qwen3.5-397b-a17b/trial_results.jsonl`
 - `raw_results/gemini-main/gemini-2.5-flash/trial_results.jsonl`
+- `raw_results/gemini-main/gemini-3-flash-preview/trial_results.jsonl`
 - `summaries/openai-main/gpt-5.4/summary.json`
 - `summaries/gemini-main/gemini-2.5-flash/summary.json`
+- `summaries/gemini-main/gemini-3-flash-preview/summary.json`
 
 Notes:
 

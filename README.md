@@ -1,6 +1,14 @@
 # Q-AssertBench Project Code
 
-This directory contains the runnable benchmark framework, task catalog, and execution-based evaluation pipeline for Q-AssertBench.
+Q-AssertBench is a benchmark framework for studying assertion generation in quantum programs. This repository contains the runnable task catalog, generation clients, and execution-based evaluation pipeline used to reproduce or extend the released experiments, with particular emphasis on the scoring stage that turns raw generations into benchmark outcomes.
+
+## Overview
+
+The public artifact is organized around three components:
+
+- benchmark tasks with prompts, gold assertions, and designated faulty counterparts
+- generation entry points that can query external model APIs without embedding any key in the repository
+- an execution-based evaluator that scores generated assertions into trial-level and summary-level benchmark results
 
 ## Quick Start
 
@@ -13,7 +21,7 @@ cd Q-AssertBench
 
 ### 2. Create the environment
 
-This repository targets Python 3.10+.
+This repository targets Python 3.10+. The commands below assume an Ubuntu/Linux shell; other environments may need minor adjustments to shell syntax or virtual-environment activation.
 
 ```bash
 python3 -m venv .venv
@@ -94,7 +102,3 @@ The released evaluation pipeline is provider-agnostic once a `generation_records
 - `examples/client_templates/`: provider-safe reference manifests with no embedded keys
 - `experiments/`: experiment manifests used for the released study configurations
 - `experiment_data/formal_release/2026-04-02/`: paper-aligned released generations, raw results, and summaries
-
-## Project Summary
-
-Q-AssertBench is a benchmark framework for studying assertion generation in quantum programs. The repository provides the task set, generation clients, execution-based evaluator, and reporting scripts needed to reproduce or extend the released experiments, with particular emphasis on the evaluation stage that turns raw generations into benchmark outcomes.

@@ -1,9 +1,0 @@
-Metadata-Version: 2.4
-Name: qasserbench
-Version: 0.1.0
-Summary: Benchmark scaffold for quantum assertion and verification experiments
-Requires-Python: >=3.10
-Requires-Dist: openai>=1.30.0
-Requires-Dist: pyyaml>=6.0
-Requires-Dist: qiskit>=2.3.1
-Requires-Dist: qiskit-aer>=0.17.2

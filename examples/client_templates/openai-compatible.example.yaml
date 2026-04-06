@@ -1,0 +1,35 @@
+# Reference manifest for OpenAI-compatible providers.
+#
+# This file intentionally does not contain any API key.
+# Export your own key before running, for example:
+#   export QAB_API_KEY="your-api-key"
+#
+# This template is only a starting point. Different providers may require
+# different base URLs, model identifiers, temperatures, token limits, or
+# timeouts. If your provider is not OpenAI-compatible, switch to one of the
+# native client modes supported by scripts/run_generation.py.
+
+name: quickstart-openai-compatible
+client: openai-compatible
+
+api:
+  base_url: https://your-provider.example/v1
+  api_key_env: QAB_API_KEY
+
+defaults:
+  tasks_root: benchmark_data/tasks
+  output_dir: experiment_data/generated_instances/quickstart-openai-compatible
+  temperature: 1.0
+  max_output_tokens: 2048
+  trials: 2
+  concurrency: 2
+
+task_selection:
+  mode: include
+  task_ids:
+    - QAB01
+    - QAB02
+
+models:
+  - model_id: your-provider/model-a
+  - model_id: your-provider/model-b

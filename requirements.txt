@@ -1,0 +1,3 @@
+# Pip-friendly bootstrap for local development and CLI usage.
+# Runtime dependencies are declared in pyproject.toml.
+-e .

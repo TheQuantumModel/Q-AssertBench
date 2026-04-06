@@ -7,10 +7,23 @@ __pycache__/
 .mypy_cache/
 .coverage
 htmlcov/
+docs/
 
 experiment_data/generated_instances/
 experiment_data/raw_results/
 experiment_data/summaries/
+
+# Local-only development helpers kept out of the public repo.
+src/qasserbench/benchmark/flat_support.py
+src/qasserbench/benchmark/legacy_support.py
+src/qasserbench/generation/curation.py
+src/qasserbench/generation/inject.py
+tests/test_candidate_extraction.py
+tests/test_generation_driver.py
+tests/test_layout.py
+tests/test_openai_compatible_client.py
+tests/test_prompt_rendering.py
+tests/test_runtime_interfaces.py
 
 *.log
 .env.local

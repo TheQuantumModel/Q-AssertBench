@@ -1,3 +1,6 @@
-# Pip-friendly bootstrap for local development and CLI usage.
-# Runtime dependencies are declared in pyproject.toml.
--e .
+# Runtime dependencies for the public Q-AssertBench artifact.
+matplotlib>=3.10.8
+openai>=1.30.0
+pyyaml>=6.0
+qiskit>=2.3.1
+qiskit-aer>=0.17.2

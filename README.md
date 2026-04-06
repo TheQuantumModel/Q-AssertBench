@@ -13,6 +13,7 @@ python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
+python -m pip install -e . --no-deps
 ```
 
 ### 2. Validate the benchmark tasks
@@ -78,6 +79,7 @@ The released evaluation pipeline is provider-agnostic once a `generation_records
 
 - `benchmark_data/tasks/`: canonical task catalog, including prompts, gold assertions, and fault-injected counterparts
 - `src/qasserbench/`: benchmark loader, generation clients, execution runtime, evaluation logic, and reporting utilities
+- `tests/`: retained core tests for task loading and evaluation; internal recovery and provider-specific tests are intentionally omitted from the public artifact
 - `scripts/run_generation.py`: repeated assertion generation for single-model or manifest-driven runs
 - `scripts/run_evaluation.py`: execution-based evaluation from `generation_records.jsonl` to `trial_results.jsonl`
 - `scripts/summarize_results.py`: summary aggregation from trial-level results
